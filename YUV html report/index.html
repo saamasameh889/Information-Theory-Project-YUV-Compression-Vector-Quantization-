@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUV Vector Quantization Compression Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .summary { background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .metrics { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .metric-card { background-color: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 15px; width: 30%; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #0066cc; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .image-container { margin: 20px 0; }
+        .image-pair { margin-bottom: 30px; }
+        .image-pair img { max-width: 100%; border: 1px solid #ddd; }
+        .chart-container { width: 100%; height: 400px; margin: 20px 0; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>YUV Vector Quantization Compression Report</h1>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>This report presents the results of YUV Vector Quantization compression applied to a set of test images.</p>
+            <p>Number of training images: 30</p>
+            <p>Number of test images: 15</p>
+            <p>Codebook size: 256 vectors (2x2 pixels each)</p>
+            <p>U and V channels subsampled to 50% width and 50% height</p>
+        </div>
+        <h2>Compression Metrics</h2>
+        <div class="metrics">
+            <div class="metric-card">
+                <h3>Average PSNR</h3>
+                <div class="metric-value">23.74 dB</div>
+                <p>Peak Signal-to-Noise Ratio</p>
+            </div>
+            <div class="metric-card">
+                <h3>Average SSIM</h3>
+                <div class="metric-value">0.9784</div>
+                <p>Structural Similarity Index</p>
+            </div>
+            <div class="metric-card">
+                <h3>Average Compression Ratio</h3>
+                <div class="metric-value">8.09:1</div>
+                <p>Original size : Compressed size</p>
+            </div>
+        </div>
+        <h2>Performance Charts</h2>
+        <div class="chart-container">
+            <canvas id="psnrChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="ssimChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="compressionChart"></canvas>
+        </div>
+        <h2>Detailed Results</h2>
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>PSNR (dB)</th>
+                <th>SSIM</th>
+                <th>Compression Ratio</th>
+            </tr>
+            <tr>
+                <td>Image 1</td>
+                <td>22.90</td>
+                <td>0.9829</td>
+                <td>8.09:1</td>
+            </tr>
+            <tr>
+                <td>Image 2</td>
+                <td>20.19</td>
+                <td>0.9669</td>
+                <td>8.08:1</td>
+            </tr>
+            <tr>
+                <td>Image 3</td>
+                <td>24.10</td>
+                <td>0.9774</td>
+                <td>8.12:1</td>
+            </tr>
+            <tr>
+                <td>Image 4</td>
+                <td>30.14</td>
+                <td>0.9948</td>
+                <td>8.07:1</td>
+            </tr>
+            <tr>
+                <td>Image 5</td>
+                <td>22.86</td>
+                <td>0.9837</td>
+                <td>8.10:1</td>
+            </tr>
+            <tr>
+                <td>Image 6</td>
+                <td>23.33</td>
+                <td>0.9806</td>
+                <td>8.12:1</td>
+            </tr>
+            <tr>
+                <td>Image 7</td>
+                <td>22.42</td>
+                <td>0.9727</td>
+                <td>8.12:1</td>
+            </tr>
+            <tr>
+                <td>Image 8</td>
+                <td>20.46</td>
+                <td>0.9466</td>
+                <td>8.12:1</td>
+            </tr>
+            <tr>
+                <td>Image 9</td>
+                <td>20.46</td>
+                <td>0.9952</td>
+                <td>8.05:1</td>
+            </tr>
+            <tr>
+                <td>Image 10</td>
+                <td>24.17</td>
+                <td>0.9607</td>
+                <td>8.07:1</td>
+            </tr>
+            <tr>
+                <td>Image 11</td>
+                <td>23.81</td>
+                <td>0.9892</td>
+                <td>8.07:1</td>
+            </tr>
+            <tr>
+                <td>Image 12</td>
+                <td>23.65</td>
+                <td>0.9699</td>
+                <td>8.12:1</td>
+            </tr>
+            <tr>
+                <td>Image 13</td>
+                <td>29.82</td>
+                <td>0.9871</td>
+                <td>8.00:1</td>
+            </tr>
+            <tr>
+                <td>Image 14</td>
+                <td>23.79</td>
+                <td>0.9882</td>
+                <td>8.12:1</td>
+            </tr>
+            <tr>
+                <td>Image 15</td>
+                <td>24.01</td>
+                <td>0.9809</td>
+                <td>8.10:1</td>
+            </tr>
+        </table>
+        <h2>Image Comparisons</h2>
+        <div class="image-container">
+            <div class="image-pair">
+                <h3>Image 1</h3>
+                <p>PSNR: 22.90 dB, SSIM: 0.9829, Compression Ratio: 8.09:1</p>
+                <img src="yuv_comparison_0.jpg" alt="Comparison of original and reconstructed image 1">
+            </div>
+            <div class="image-pair">
+                <h3>Image 2</h3>
+                <p>PSNR: 20.19 dB, SSIM: 0.9669, Compression Ratio: 8.08:1</p>
+                <img src="yuv_comparison_1.jpg" alt="Comparison of original and reconstructed image 2">
+            </div>
+            <div class="image-pair">
+                <h3>Image 3</h3>
+                <p>PSNR: 24.10 dB, SSIM: 0.9774, Compression Ratio: 8.12:1</p>
+                <img src="yuv_comparison_2.jpg" alt="Comparison of original and reconstructed image 3">
+            </div>
+        </div>
+        <script>
+            const labels = ['Image 1', 'Image 2', 'Image 3', 'Image 4', 'Image 5', 'Image 6', 'Image 7', 'Image 8', 'Image 9', 'Image 10', 'Image 11', 'Image 12', 'Image 13', 'Image 14', 'Image 15'];
+            const psnrCtx = document.getElementById('psnrChart').getContext('2d');
+            new Chart(psnrCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'PSNR (dB)',
+                        data: [22.90, 20.19, 24.10, 30.14, 22.86, 23.33, 22.42, 20.46, 20.46, 24.17, 23.81, 23.65, 29.82, 23.79, 24.01],
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'PSNR Values for Each Image'
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'PSNR (dB)'
+                            }
+                        }
+                    }
+                }
+            });
+            const ssimCtx = document.getElementById('ssimChart').getContext('2d');
+            new Chart(ssimCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'SSIM',
+                        data: [0.9829, 0.9669, 0.9774, 0.9948, 0.9837, 0.9806, 0.9727, 0.9466, 0.9952, 0.9607, 0.9892, 0.9699, 0.9871, 0.9882, 0.9809],
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'SSIM Values for Each Image'
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'SSIM'
+                            }
+                        }
+                    }
+                }
+            });
+            const compressionCtx = document.getElementById('compressionChart').getContext('2d');
+            new Chart(compressionCtx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Compression Ratio',
+                        data: [8.09, 8.08, 8.12, 8.07, 8.10, 8.12, 8.12, 8.12, 8.05, 8.07, 8.07, 8.12, 8.00, 8.12, 8.10],
+                        backgroundColor: 'rgba(255, 159, 64, 0.5)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Compression Ratios for Each Image'
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Compression Ratio (x:1)'
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
