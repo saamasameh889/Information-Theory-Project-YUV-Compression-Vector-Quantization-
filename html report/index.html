@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Quantization Compression Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .summary { background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .metrics { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .metric-card { background-color: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 15px; width: 30%; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #0066cc; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .image-container { margin: 20px 0; }
+        .image-pair { margin-bottom: 30px; }
+        .image-pair img { max-width: 100%; border: 1px solid #ddd; }
+        .chart-container { width: 100%; height: 400px; margin: 20px 0; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Vector Quantization Compression Report</h1>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>This report presents the results of image compression using Vector Quantization.</p>
+            <p>Number of training images: 30</p>
+            <p>Number of test images: 15</p>
+            <p>Codebook size: 256 vectors (2x2 pixels each)</p>
+        </div>
+        <h2>Compression Results</h2>
+        <div class="metrics">
+            <div class="metric-card">
+                <h3>Average PSNR</h3>
+                <div class="metric-value">26.65 dB</div>
+                <p>Peak Signal-to-Noise Ratio measures the quality of the compressed images.</p>
+            </div>
+            <div class="metric-card">
+                <h3>Average SSIM</h3>
+                <div class="metric-value">0.9799</div>
+                <p>Structural Similarity Index measures the perceived quality of images.</p>
+            </div>
+            <div class="metric-card">
+                <h3>Average Compression Ratio</h3>
+                <div class="metric-value">4.03:1</div>
+                <p>Ratio of original file size to compressed file size.</p>
+            </div>
+        </div>
+        <h2>Performance Visualization</h2>
+        <div class="chart-container">
+            <canvas id="metricsChart"></canvas>
+        </div>
+        <h2>Image Comparisons</h2>
+        <div class="image-container">
+            <div class="image-pair">
+                <h3>Image 1</h3>
+                <img src="comparison_0.jpg" alt="Comparison 1">
+                <p>PSNR: 26.39 dB, SSIM: 0.9868, Compression Ratio: 4.02:1</p>
+            </div>
+            <div class="image-pair">
+                <h3>Image 2</h3>
+                <img src="comparison_1.jpg" alt="Comparison 2">
+                <p>PSNR: 24.81 dB, SSIM: 0.9792, Compression Ratio: 4.02:1</p>
+            </div>
+            <div class="image-pair">
+                <h3>Image 3</h3>
+                <img src="comparison_2.jpg" alt="Comparison 3">
+                <p>PSNR: 26.30 dB, SSIM: 0.9764, Compression Ratio: 4.04:1</p>
+            </div>
+        </div>
+        <h2>Detailed Results</h2>
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>PSNR (dB)</th>
+                <th>SSIM</th>
+                <th>Compression Ratio</th>
+                <th>Reconstructed Image</th>
+            </tr>
+            <tr>
+                <td>Image 1</td>
+                <td>26.39</td>
+                <td>0.9868</td>
+                <td>4.02:1</td>
+                <td><a href="reconstructed_0.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 2</td>
+                <td>24.81</td>
+                <td>0.9792</td>
+                <td>4.02:1</td>
+                <td><a href="reconstructed_1.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 3</td>
+                <td>26.30</td>
+                <td>0.9764</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_2.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 4</td>
+                <td>29.81</td>
+                <td>0.9951</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_3.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 5</td>
+                <td>26.48</td>
+                <td>0.9852</td>
+                <td>4.02:1</td>
+                <td><a href="reconstructed_4.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 6</td>
+                <td>27.06</td>
+                <td>0.9730</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_5.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 7</td>
+                <td>26.10</td>
+                <td>0.9695</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_6.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 8</td>
+                <td>23.50</td>
+                <td>0.9493</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_7.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 9</td>
+                <td>27.66</td>
+                <td>0.9951</td>
+                <td>4.02:1</td>
+                <td><a href="reconstructed_8.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 10</td>
+                <td>23.54</td>
+                <td>0.9570</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_9.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 11</td>
+                <td>27.23</td>
+                <td>0.9904</td>
+                <td>4.02:1</td>
+                <td><a href="reconstructed_10.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 12</td>
+                <td>26.43</td>
+                <td>0.9763</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_11.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 13</td>
+                <td>29.98</td>
+                <td>0.9928</td>
+                <td>4.00:1</td>
+                <td><a href="reconstructed_12.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 14</td>
+                <td>28.39</td>
+                <td>0.9902</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_13.jpg" target="_blank">View</a></td>
+            </tr>
+            <tr>
+                <td>Image 15</td>
+                <td>26.09</td>
+                <td>0.9825</td>
+                <td>4.04:1</td>
+                <td><a href="reconstructed_14.jpg" target="_blank">View</a></td>
+            </tr>
+        </table>
+        <script>
+            // Data for charts
+            const imageLabels = ['Image 1', 'Image 2', 'Image 3', 'Image 4', 'Image 5', 'Image 6', 'Image 7', 'Image 8', 'Image 9', 'Image 10', 'Image 11', 'Image 12', 'Image 13', 'Image 14', 'Image 15'];
+            const psnrData = [26.39, 24.81, 26.30, 29.81, 26.48, 27.06, 26.10, 23.50, 27.66, 23.54, 27.23, 26.43, 29.98, 28.39, 26.09];
+            const ssimData = [0.9868, 0.9792, 0.9764, 0.9951, 0.9852, 0.9730, 0.9695, 0.9493, 0.9951, 0.9570, 0.9904, 0.9763, 0.9928, 0.9902, 0.9825];
+            const compressionData = [4.02, 4.02, 4.04, 4.04, 4.02, 4.04, 4.04, 4.04, 4.02, 4.04, 4.02, 4.04, 4.00, 4.04, 4.04];
+            // Create chart
+            const ctx = document.getElementById('metricsChart').getContext('2d');
+            const metricsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: imageLabels,
+                    datasets: [
+                        {
+                            label: 'PSNR (dB)',
+                            data: psnrData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'SSIM (x100)',
+                            data: ssimData.map(val => val * 100),
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Compression Ratio',
+                            data: compressionData,
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
