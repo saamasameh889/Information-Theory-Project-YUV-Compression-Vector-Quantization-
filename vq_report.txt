@@ -1,0 +1,28 @@
+Vector Quantization Compression Report
+=====================================
+
+Number of training images: 30
+Number of test images: 15
+Codebook size: 256 vectors (2x2 pixels each)
+
+Compression Results:
+Average PSNR: 26.65 dB
+Average SSIM: 0.9799
+Average Compression Ratio: 4.03:1
+
+Individual Image Results:
+Image 1: PSNR = 26.39 dB, SSIM = 0.9868, Compression Ratio = 4.02:1
+Image 2: PSNR = 24.81 dB, SSIM = 0.9792, Compression Ratio = 4.02:1
+Image 3: PSNR = 26.30 dB, SSIM = 0.9764, Compression Ratio = 4.04:1
+Image 4: PSNR = 29.81 dB, SSIM = 0.9951, Compression Ratio = 4.04:1
+Image 5: PSNR = 26.48 dB, SSIM = 0.9852, Compression Ratio = 4.02:1
+Image 6: PSNR = 27.06 dB, SSIM = 0.9730, Compression Ratio = 4.04:1
+Image 7: PSNR = 26.10 dB, SSIM = 0.9695, Compression Ratio = 4.04:1
+Image 8: PSNR = 23.50 dB, SSIM = 0.9493, Compression Ratio = 4.04:1
+Image 9: PSNR = 27.66 dB, SSIM = 0.9951, Compression Ratio = 4.02:1
+Image 10: PSNR = 23.54 dB, SSIM = 0.9570, Compression Ratio = 4.04:1
+Image 11: PSNR = 27.23 dB, SSIM = 0.9904, Compression Ratio = 4.02:1
+Image 12: PSNR = 26.43 dB, SSIM = 0.9763, Compression Ratio = 4.04:1
+Image 13: PSNR = 29.98 dB, SSIM = 0.9928, Compression Ratio = 4.00:1
+Image 14: PSNR = 28.39 dB, SSIM = 0.9902, Compression Ratio = 4.04:1
+Image 15: PSNR = 26.09 dB, SSIM = 0.9825, Compression Ratio = 4.04:1

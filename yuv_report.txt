@@ -1,0 +1,29 @@
+YUV Vector Quantization Compression Report
+=========================================
+
+Number of training images: 30
+Number of test images: 15
+Codebook size: 256 vectors (2x2 pixels each)
+U and V channels subsampled to 50% width and 50% height
+
+Compression Results:
+Average PSNR: 23.74 dB
+Average SSIM: 0.9784
+Average Compression Ratio: 8.09:1
+
+Individual Image Results:
+Image 1: PSNR = 22.90 dB, SSIM = 0.9829, Compression Ratio = 8.09:1
+Image 2: PSNR = 20.19 dB, SSIM = 0.9669, Compression Ratio = 8.08:1
+Image 3: PSNR = 24.10 dB, SSIM = 0.9774, Compression Ratio = 8.12:1
+Image 4: PSNR = 30.14 dB, SSIM = 0.9948, Compression Ratio = 8.07:1
+Image 5: PSNR = 22.86 dB, SSIM = 0.9837, Compression Ratio = 8.10:1
+Image 6: PSNR = 23.33 dB, SSIM = 0.9806, Compression Ratio = 8.12:1
+Image 7: PSNR = 22.42 dB, SSIM = 0.9727, Compression Ratio = 8.12:1
+Image 8: PSNR = 20.46 dB, SSIM = 0.9466, Compression Ratio = 8.12:1
+Image 9: PSNR = 20.46 dB, SSIM = 0.9952, Compression Ratio = 8.05:1
+Image 10: PSNR = 24.17 dB, SSIM = 0.9607, Compression Ratio = 8.07:1
+Image 11: PSNR = 23.81 dB, SSIM = 0.9892, Compression Ratio = 8.07:1
+Image 12: PSNR = 23.65 dB, SSIM = 0.9699, Compression Ratio = 8.12:1
+Image 13: PSNR = 29.82 dB, SSIM = 0.9871, Compression Ratio = 8.00:1
+Image 14: PSNR = 23.79 dB, SSIM = 0.9882, Compression Ratio = 8.12:1
+Image 15: PSNR = 24.01 dB, SSIM = 0.9809, Compression Ratio = 8.10:1
